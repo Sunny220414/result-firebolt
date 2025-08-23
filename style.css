@@ -373,9 +373,7 @@ ul {
     font-size: 15px;
 }
 
-/* Phone Portrait Mode - 1 card per row */
 @media screen and (max-width: 600px) and (orientation: portrait) {
-    /* Legacy section - text over image with better contrast */
     .legacy-box {
         flex-direction: column;
         min-height: 500px;
@@ -429,7 +427,7 @@ ul {
         align-items: center;
         gap: 20px;
         width: 100%;
-        margin-bottom: -25px;
+        margin-bottom: -15px;
     }
 
     .card {
@@ -625,4 +623,5 @@ ul {
         font-size: 12px;
     }
 }
+
 
