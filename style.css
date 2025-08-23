@@ -374,9 +374,10 @@ ul {
 }
 
 @media screen and (max-width: 600px) and (orientation: portrait) {
+    /* Legacy section - text over image with better contrast */
     .legacy-box {
         flex-direction: column;
-        min-height: 500px;
+        min-height: 300px;
         position: relative;
     }
 
@@ -386,8 +387,8 @@ ul {
         left: 0;
         right: 0;
         bottom: 0;
-        padding: 20px;
-        background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 100%);
+        padding: 15px;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%);
         z-index: 3;
         display: flex;
         flex-direction: column;
@@ -400,19 +401,21 @@ ul {
         height: 100%;
         mask-image: none;
         -webkit-mask-image: none;
+        filter: brightness(1.2) contrast(1.1) saturate(1.1);
     }
 
     .legacy-text {
         max-width: 100%;
-        font-size: 17px;
+        font-size: 14px;
         text-shadow: 0 1px 2px rgba(0,0,0,0.8);
-        line-height: 1.5;
+        line-height: 1.4;
+        filter: brightness(1.2), contrast(1.5);
     }
 
     .legacy-title {
-        font-size: 24px;
+        font-size: 20px;
         text-align: center;
-        margin-bottom: 15px;
+        margin-bottom: 12px;
     }
 
     .container {
@@ -518,23 +521,47 @@ ul {
 }
 
 @media screen and (max-width: 500px) and (orientation: portrait) {
-    .legacy-box {
-        min-height: 450px;
-        margin: 0 10px;
-        width: calc(100% - 20px);
+        .legacy-box {
+        flex-direction: column;
+        min-height: 350px;
+        position: relative;
     }
 
     .legacy-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         padding: 15px;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%);
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
-    .legacy-title {
-        font-size: 24px;
-        margin-bottom: 10px;
+    .legacy-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        mask-image: none;
+        -webkit-mask-image: none;
+        filter: brightness(1.2) contrast(1.1) saturate(1.1);
     }
 
     .legacy-text {
-        font-size: 16px;
+        max-width: 100%;
+        font-size: 14px;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+        line-height: 1.4;
+        filter: brightness(1.2), contrast(1.5);
+    }
+
+    .legacy-title {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 12px;
     }
 
     .container {
@@ -611,6 +638,50 @@ ul {
 }
 
 @media screen and (min-width: 415px) and (max-width: 500px) and (orientation: portrait) {
+        .legacy-box {
+        flex-direction: column;
+        min-height: 350px;
+        position: relative;
+    }
+
+    .legacy-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 15px;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%);
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .legacy-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        mask-image: none;
+        -webkit-mask-image: none;
+        filter: brightness(1.2) contrast(1.1) saturate(1.1);
+    }
+
+    .legacy-text {
+        max-width: 100%;
+        font-size: 14px;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+        line-height: 1.4;
+        filter: brightness(1.2), contrast(1.5);
+    }
+
+    .legacy-title {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 12px;
+    }
+
+
     .card {
         height: 290px;
     }
