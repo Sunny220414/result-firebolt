@@ -278,6 +278,7 @@ body {
     box-shadow: none;
 }
 
+/* Refined laurel animation - removed reddish glow, kept opacity at 1 */
 .dusra {
     position: absolute;
     top: 50px;
@@ -289,10 +290,11 @@ body {
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.4s ease, transform 0.5s ease;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     z-index: 2;
-    background-color: rgba(20, 20, 20, 0.85);
+    background-color: rgba(20, 20, 20, 0.95);
+    overflow: hidden;
 }
 
 .laurel-img {
@@ -303,6 +305,10 @@ body {
     z-index: 1;
     opacity: 1;
     margin-top: 20px;
+    width: 390px;
+    margin-bottom: 30px;
+    transform: scale(1.1);
+    transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .laurelcontent {
@@ -311,8 +317,22 @@ body {
     text-align: center;
     color: white;
     width: 90%;
-    margin-top: -70px;
     font-size: 15px;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all 0.5s ease 0.2s;
+}
+
+.laurelcontent::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff4444, transparent);
+    transform: translateX(-50%);
+    transition: width 0.4s ease 0.3s;
 }
 
 h3 {
@@ -327,6 +347,8 @@ h3 {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     opacity: 0.9;
     font-size: 16px;
+    transform: scale(0.9);
+    transition: all 0.4s ease 0.4s;
 }
 
 ul {
@@ -349,11 +371,42 @@ ul {
     width: fit-content;
     max-width: 90%;
     font-size: 16px;
+    transform: translateX(-10px);
+    opacity: 0;
+    transition: all 0.4s ease;
 }
 
+.fixed:nth-child(1) { transition-delay: 0.45s; }
+.fixed:nth-child(2) { transition-delay: 0.5s; }
+.fixed:nth-child(3) { transition-delay: 0.55s; }
+.fixed:nth-child(4) { transition-delay: 0.6s; }
+
+/* Hover effects */
 .card:hover .dusra {
     opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.card:hover .laurel-img {
+    transform: scale(1);
+}
+
+.card:hover .laurelcontent {
+    opacity: 1;
     transform: translateY(0);
+}
+
+.card:hover .laurelcontent::before {
+    width: 80%;
+}
+
+.card:hover h3 {
+    transform: scale(1);
+}
+
+.card:hover .fixed {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .extra{
